@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <title>Lobby Check-In</title>
 
-  <!-- Playfair Display -->
+  <!-- Playfair Display Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -21,47 +21,46 @@
 
     .container {
       background: white;
-      padding: 60px;
+      padding: 70px 60px 60px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 650px;
+      max-width: 700px;
       width: 100%;
     }
 
-    .brand {
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
-
     .logo {
-      max-height: 80px;
-      margin-bottom: 20px;
+      max-width: 420px;
+      width: 100%;
+      height: auto;
+      margin: 0 auto 40px auto;
+      display: block;
     }
 
     h1 {
-      font-size: 44px;
-      margin-bottom: 20px;
+      font-size: 48px;
+      margin-bottom: 30px;
     }
 
     p {
-      font-size: 28px;
-      margin-bottom: 40px;
+      font-size: 30px;
+      margin-bottom: 45px;
+      line-height: 1.4;
     }
 
     button {
       font-family: 'Playfair Display', serif;
-      font-size: 36px;
+      font-size: 38px;
       padding: 30px 60px;
-      border-radius: 12px;
+      border-radius: 14px;
       border: none;
-      background: #007aff;
+      background: #0a74ff;
       color: white;
       cursor: pointer;
       width: 100%;
     }
 
     button:active {
-      background: #005ecb;
+      background: #055ed1;
     }
   </style>
 </head>
@@ -69,11 +68,7 @@
 
   <!-- SCREEN 1 -->
   <div class="container" id="screen1">
-    <!-- OPTIONAL LOGO -->
-    <!-- Upload your logo to the repo and name it logo.png -->
     <img src="logo.png" alt="Hurstbourne Insurance & Financial" class="logo">
-
-    <div class="brand">Hurstbourne Insurance &amp; Financial</div>
 
     <h1>Welcome</h1>
     <p>Please tap below when you arrive for your appointment.</p>
@@ -85,10 +80,11 @@
   <div class="container" id="screen2" style="display:none;">
     <img src="logo.png" alt="Hurstbourne Insurance & Financial" class="logo">
 
-    <div class="brand">Hurstbourne Insurance &amp; Financial</div>
-
     <h1>Thank you</h1>
-    <p>Please take a seat.<br>Someone will be right out.</p>
+    <p>
+      Please take a seat.<br>
+      Someone will be right out.
+    </p>
   </div>
 
   <script>
@@ -97,7 +93,7 @@
       document.getElementById("screen1").style.display = "none";
       document.getElementById("screen2").style.display = "block";
 
-      // Send email silently
+      // Send email silently via FormSubmit
       fetch("https://formsubmit.co/ajax/curren@hurstbournewealthmanagement.com", {
         method: "POST",
         headers: {
