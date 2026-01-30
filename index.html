@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <title>Lobby Check-In</title>
 
-  <!-- Playfair Display Font -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
 
   <style>
@@ -21,7 +20,7 @@
 
     .container {
       background: white;
-      padding: 70px 60px 60px;
+      padding: 50px 60px 55px;
       border-radius: 16px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       max-width: 700px;
@@ -29,28 +28,36 @@
     }
 
     .logo {
-      max-width: 420px;
+      max-width: 520px;
       width: 100%;
       height: auto;
-      margin: 0 auto 40px auto;
+      margin: 0 auto 25px auto;
       display: block;
     }
 
+    .divider {
+      width: 100%;
+      height: 1px;
+      background: #ddd;
+      margin: 20px 0 40px;
+    }
+
     h1 {
-      font-size: 48px;
-      margin-bottom: 30px;
+      font-size: 42px;
+      margin-bottom: 20px;
+      font-weight: 600;
     }
 
     p {
-      font-size: 30px;
-      margin-bottom: 45px;
+      font-size: 26px;
+      margin-bottom: 40px;
       line-height: 1.4;
     }
 
     button {
       font-family: 'Playfair Display', serif;
-      font-size: 38px;
-      padding: 30px 60px;
+      font-size: 34px;
+      padding: 28px 60px;
       border-radius: 14px;
       border: none;
       background: #0a74ff;
@@ -70,6 +77,8 @@
   <div class="container" id="screen1">
     <img src="logo.png" alt="Hurstbourne Insurance & Financial" class="logo">
 
+    <div class="divider"></div>
+
     <h1>Welcome</h1>
     <p>Please tap below when you arrive for your appointment.</p>
 
@@ -80,6 +89,8 @@
   <div class="container" id="screen2" style="display:none;">
     <img src="logo.png" alt="Hurstbourne Insurance & Financial" class="logo">
 
+    <div class="divider"></div>
+
     <h1>Thank you</h1>
     <p>
       Please take a seat.<br>
@@ -89,11 +100,9 @@
 
   <script>
     function checkIn() {
-      // Switch screens immediately
       document.getElementById("screen1").style.display = "none";
       document.getElementById("screen2").style.display = "block";
 
-      // Send email silently via FormSubmit
       fetch("https://formsubmit.co/ajax/curren@hurstbournewealthmanagement.com", {
         method: "POST",
         headers: {
@@ -106,7 +115,6 @@
         })
       });
 
-      // Reset after 30 seconds
       setTimeout(() => {
         document.getElementById("screen2").style.display = "none";
         document.getElementById("screen1").style.display = "block";
